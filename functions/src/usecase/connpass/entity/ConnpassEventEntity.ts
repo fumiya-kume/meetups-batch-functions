@@ -7,7 +7,7 @@ class ConnpassEventEntity {
     event_id: number = 0
     title: String = ""
     catch: String = ""
-    description: String = "";
+    description: String = ""
     event_url: String = ""
 
     constructor() {
