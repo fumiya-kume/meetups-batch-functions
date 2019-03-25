@@ -6,6 +6,7 @@ class ConnpassEventEntity {
 
     event_id: number
     title: String
+    catch: String = ""
 
     constructor() {
         this.event_id = 0
@@ -25,6 +26,9 @@ mocha.describe('Connpassの勉強会を表現するEntityが存在する', () =>
     it('イベントIDを設定することができる', () =>{
         connpassEventEntity.event_id = 1
         chai.expect(connpassEventEntity.event_id).to.be.equal(1)
+    })
+    it('イベントのキャッチが存在する', () => {
+        chai.expect(connpassEventEntity.catch).to.be.equal("")
     })
     it('イベントIDを使いイベントを比較することができる', () => {
         const event1 = new ConnpassEventEntity()
