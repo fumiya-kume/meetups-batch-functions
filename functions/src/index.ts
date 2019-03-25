@@ -15,4 +15,4 @@ mocha.describe('DESC', () => {
     it('ON', () => {
         chai.assert("foo", "bar");
     });
-});
+})
