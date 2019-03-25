@@ -9,6 +9,7 @@ class ConnpassEventEntity {
     catch: String = ""
     description: String = ""
     event_url: String = ""
+    hash_tag : String = ""
 
     constructor() {
     }
@@ -35,6 +36,9 @@ mocha.describe('Connpassの勉強会を表現するEntityが存在する', () =>
     })
     it('イベントURLが存在する', () => {
         chai.expect(connpassEventEntity.event_url).to.be.equal("")
+    })
+    it('ハッシュタグが存在する', () =>{
+        chai.expect(connpassEventEntity.hash_tag).to.be.equal("")
     })
     it('イベントIDを使いイベントを比較することができる', () => {
         const event1 = new ConnpassEventEntity()
