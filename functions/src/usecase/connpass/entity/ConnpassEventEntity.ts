@@ -15,6 +15,7 @@ class ConnpassEventEntity {
     limit: number = -1
     event_type: String = "participation"
     address: String = ""
+    place: String = ""
 
     constructor() {
     }
@@ -59,6 +60,9 @@ mocha.describe('Connpassの勉強会を表現するEntityが存在する', () =>
     })
     it("イベントの開催住所が存在する", () => {
         chai.expect(connpassEventEntity.address).to.be.equal("")
+    })
+    it("イベント開催場所が存在する", () => {
+        chai.expect(connpassEventEntity.place).to.be.equal("")
     })
     it('イベントIDを使いイベントを比較することができる', () => {
         const event1 = new ConnpassEventEntity()
