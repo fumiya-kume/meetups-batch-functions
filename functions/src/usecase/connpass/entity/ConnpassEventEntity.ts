@@ -52,3 +52,22 @@ mocha.describe('Connpassの勉強会を表現するEntityが存在する', () =>
         chai.expect(event1.equals(event2)).to.be.false
     })
 })
+
+describe("Dateのテスト", () => {
+    const dateInstance = new Date(1900, 0, 1, 1, 0, 0, 0)
+    it("インスタンスを作ってみる", () => {
+        chai.expect(dateInstance).to.be.not.null
+    })
+    it("正常に日時が生成されたことを確認する", () => {
+        chai.expect(dateInstance.getFullYear()).to.be.eq(1900)
+        chai.expect(dateInstance.getMonth()).to.be.eq(0)
+        chai.expect(dateInstance.getDay()).to.be.eq(1)
+        chai.expect(dateInstance.getHours()).to.be.eq(1)
+        chai.expect(dateInstance.getMinutes()).to.be.eq(0)
+        chai.expect(dateInstance.getSeconds()).to.be.eq(0)
+    })
+    it("日時を変更してあとで読み込めるようにする", () => {
+        dateInstance.setFullYear(2019)
+        chai.expect(dateInstance.getFullYear()).to.be.eq(2019)
+    })
+})
