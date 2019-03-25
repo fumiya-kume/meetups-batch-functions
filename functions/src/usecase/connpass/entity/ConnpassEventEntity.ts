@@ -4,14 +4,12 @@ import * as chai from 'chai'
 class ConnpassEventEntity {
     equals: (target: ConnpassEventEntity) => Boolean = (target) => this.event_id == target.event_id
 
-    event_id: number
-    title: String
+    event_id: number = 0
+    title: String = ""
     catch: String = ""
     description: String = "";
 
     constructor() {
-        this.event_id = 0
-        this.title = ""
     }
 }
 
