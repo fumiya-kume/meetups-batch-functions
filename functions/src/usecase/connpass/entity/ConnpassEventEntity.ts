@@ -2,8 +2,11 @@ import * as mocha from "mocha"
 import * as chai from 'chai'
 
 class ConnpassEventEntity {
+    equals: (target: ConnpassEventEntity) => Boolean = (target) => this.event_id == target.event_id
+
     event_id: number
     title: String
+
     constructor() {
         this.event_id = 0
         this.title = ""
@@ -22,5 +25,16 @@ mocha.describe('Connpassの勉強会を表現するEntityが存在する', () =>
     it('イベントIDを設定することができる', () =>{
         connpassEventEntity.event_id = 1
         chai.expect(connpassEventEntity.event_id).to.be.equal(1)
+    })
+    it('イベントIDを使いイベントを比較することができる', () => {
+        const event1 = new ConnpassEventEntity()
+        event1.event_id = 1
+        const event2 = new ConnpassEventEntity()
+        event2.event_id= 1
+
+        chai.expect(event1.equals(event2)).to.be.true
+
+        event2.event_id = 2
+        chai.expect(event1.equals(event2)).to.be.false
     })
 })
