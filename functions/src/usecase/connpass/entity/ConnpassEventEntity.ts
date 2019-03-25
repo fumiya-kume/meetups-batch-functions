@@ -57,7 +57,7 @@ mocha.describe('Connpassの勉強会を表現するEntityが存在する', () =>
     it("イベントの種類が存在する", () => {
         chai.expect(connpassEventEntity.event_type).to.be.equal("participation")
     })
-    it("イベントの開催場所が存在する", () => {
+    it("イベントの開催住所が存在する", () => {
         chai.expect(connpassEventEntity.address).to.be.equal("")
     })
     it('イベントIDを使いイベントを比較することができる', () => {
