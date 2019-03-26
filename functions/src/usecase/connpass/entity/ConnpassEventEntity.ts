@@ -1,6 +1,10 @@
 import * as mocha from "mocha"
 import * as chai from 'chai'
 
+type lat = number
+type lon = number
+type Location = [lat, lon]
+
 class ConnpassEventEntity {
     equals: (target: ConnpassEventEntity) => Boolean = (target) => this.event_id == target.event_id
 
@@ -16,6 +20,7 @@ class ConnpassEventEntity {
     event_type: String = "participation"
     address: String = ""
     place: String = ""
+    location: Location = [0,0]
 
     constructor() {
     }
@@ -63,6 +68,11 @@ mocha.describe('Connpassの勉強会を表現するEntityが存在する', () =>
     })
     it("イベント開催場所が存在する", () => {
         chai.expect(connpassEventEntity.place).to.be.equal("")
+    })
+    it("イベントの開催場所を保存することができる", () => {
+        const locationSnapshot = connpassEventEntity.location
+        chai.expect(0).to.be.equal(locationSnapshot[0])
+        chai.expect(0).to.be.equal(locationSnapshot[1])
     })
     it('イベントIDを使いイベントを比較することができる', () => {
         const event1 = new ConnpassEventEntity()
